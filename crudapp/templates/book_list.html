@@ -1,0 +1,13 @@
+
+<h1>All Books</h1>
+<a href="{% url 'add_book' %}">Add New Book</a> |
+<a href="{% url 'logout' %}">Logout</a>
+<ul>
+    {% for b in books %}
+        <li>
+            <a href="{% url 'book_detail' b.slug %}">{{ b.title }}</a>
+        </li>
+    {% empty %}
+        <li>No books available.</li>
+    {% endfor %}
+</ul>
